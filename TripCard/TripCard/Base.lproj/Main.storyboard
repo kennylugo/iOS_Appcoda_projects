@@ -111,14 +111,6 @@
                                             <constraint firstAttribute="trailing" secondItem="Hh5-AW-B3V" secondAttribute="trailing" id="x7b-18-UpU"/>
                                         </constraints>
                                         <size key="customSize" width="250" height="380"/>
-                                        <connections>
-                                            <outlet property="cityLabel" destination="aHI-It-raO" id="fQK-d7-YaR"/>
-                                            <outlet property="countryLabel" destination="9dl-Ud-O84" id="ybd-ih-3hm"/>
-                                            <outlet property="daysLabel" destination="R0p-b2-Yum" id="JjT-21-dqr"/>
-                                            <outlet property="imageView" destination="71g-nK-wAu" id="jxf-Dc-9PG"/>
-                                            <outlet property="likeButton" destination="0AJ-a2-CZm" id="GiI-Hx-m5N"/>
-                                            <outlet property="priceLabel" destination="Vfa-7n-D86" id="R1n-Q1-rwc"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -161,7 +153,6 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="V0O-hE-S8t" id="pvD-cY-xRL"/>
-                        <outlet property="collectionView" destination="6cR-Xa-85r" id="aEI-mt-57j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

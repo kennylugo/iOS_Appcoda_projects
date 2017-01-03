@@ -50,6 +50,7 @@
 		256CCC4A1E1B9B2600244A2C /* V */ = {
 			isa = PBXGroup;
 			children = (
+				F42171A51DD1C03D0093C82D /* Main.storyboard */,
 				256CCC431E1B8A5F00244A2C /* TripCollectionViewCell.swift */,
 			);
 			name = V;
@@ -86,7 +87,6 @@
 				256CCC4B1E1B9B3000244A2C /* C */,
 				256CCC4A1E1B9B2600244A2C /* V */,
 				256CCC491E1B9B1A00244A2C /* M */,
-				F42171A51DD1C03D0093C82D /* Main.storyboard */,
 				F42171A81DD1C03D0093C82D /* Assets.xcassets */,
 				F42171AA1DD1C03D0093C82D /* LaunchScreen.storyboard */,
 				F42171AD1DD1C03D0093C82D /* Info.plist */,
