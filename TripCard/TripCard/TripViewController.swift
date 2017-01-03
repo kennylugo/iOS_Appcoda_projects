@@ -9,6 +9,10 @@
 import UIKit
 
 class TripViewController: UIViewController {
+    
+    // Collection View
+    @IBOutlet var collectionView: UICollectionView!
+    
 
     @IBOutlet var backgroundImageView: UIImageView!
     
