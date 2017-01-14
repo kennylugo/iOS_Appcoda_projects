@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class TripViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, TripCollectionViewCellDelegate {
     
     // Collection View
     @IBOutlet var collectionView: UICollectionView!
@@ -26,14 +26,23 @@ class TripViewController: UIViewController, UICollectionViewDataSource, UICollec
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
         
+        
+        print(trips)
+        
+    }
+    
+    func didLikeButtonPressed(cell: TripCollectionViewCell) {
+        if let indexPath = collectionView.indexPath(for: cell) {
+            trips[indexPath.row].isLiked = trips[indexPath.row].isLiked ? false : true
+            cell.isLiked = trips[indexPath.row].isLiked
+        }
     }
     
     
     
     
     private var trips = [Trip(tripId: "Paris001", city: "Paris", country: "France",
-                              featuredImage: UIImage(named: "paris"), price: 2000, totalDays: 5, isLiked:
-        false),
+                              featuredImage: UIImage(named: "paris"), price: 2000, totalDays: 5, isLiked:false),
                          Trip(tripId: "Rome001", city: "Rome", country: "Italy", featuredImage:
                             UIImage(named: "rome"), price: 800, totalDays: 3, isLiked: false),
                          Trip(tripId: "Istanbul001", city: "Istanbul", country: "Turkey",
@@ -54,33 +63,7 @@ class TripViewController: UIViewController, UICollectionViewDataSource, UICollec
                          Trip(tripId: "Kyoto001", city: "Kyoto", country: "Japan", featuredImage:
                             UIImage(named: "kyoto"), price: 1000, totalDays: 5, isLiked: false)
     ]
-    
-    
-    
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection
-//        section: Int) -> Int {
-//        return trips.count
-//    }
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt
-//        indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
-//                                                      for: indexPath) as! TripCollectionViewCell
-//        // Configure the cell
-//        cell.cityLabel.text = trips[indexPath.row].city
-//        cell.countryLabel.text = trips[indexPath.row].country
-//        cell.imageView.image = trips[indexPath.row].featuredImage
-//        cell.priceLabel.text = "$\(String(trips[indexPath.row].price))"
-//        cell.totalDaysLabel.text = "\(trips[indexPath.row].totalDays) days"
-//        cell.isLiked = trips[indexPath.row].isLiked
-//        
-//        
-//        // apply round corner
-//        cell.layer.cornerRadius = 4.0
-//        return cell
-//    }
+
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -103,14 +86,16 @@ class TripViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.priceLabel.text = "$\(trips[indexPath.row].price)"
         cell.isLiked = trips[indexPath.row].isLiked
         
+        cell.layer.cornerRadius = 4.0
+        
+        // Mark ourselves as the receiver
+        cell.delegate = self
+        
         return cell
     }
     
     
     
-    
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

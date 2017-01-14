@@ -8,7 +8,19 @@
 
 import UIKit
 
+protocol TripCollectionViewCellDelegate {
+    func didLikeButtonPressed(cell: TripCollectionViewCell)
+}
+
 class TripCollectionViewCell: UICollectionViewCell {
+    
+    
+    var delegate: TripCollectionViewCellDelegate?
+    
+    @IBAction func likeButtonTapped(sender: AnyObject) {
+        delegate?.didLikeButtonPressed(cell: self)
+    }
+    
     
     //Labels and button
     @IBOutlet var imageView: UIImageView!

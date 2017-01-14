@@ -21,6 +21,7 @@ struct Trip {
     init(tripId: String, city: String, country: String, featuredImage: UIImage!, price: Int, totalDays: Int, isLiked: Bool){
         self.tripId = tripId
         self.city = city
+        self.country = country
         self.featuredImage = featuredImage
         self.price = price
         self.totalDays = totalDays
